@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Sprites/level.png" type="Texture" id=1]
+[ext_resource path="res://Level.gd" type="Script" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 1.0
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+polygon = PoolVector2Array( 128.159, 49.2174, 168.479, 7.62746, 217.053, 7.62746, 268.803, 61.2816, 192.29, 135.255, 192.29, 47.3125, 184.035, 47.3125, 183.718, 135.889, 132.286, 136.207, 132.286, 95.887, 124.349, 96.5219, 124.349, 135.572, 55.456, 136.207, 6.564, 86.3625, 7.51644, 7.94494, 86.8865, 7.94494, 86.569, 0.00793457, 0.214394, 0.642895, 0.531876, 142.874, 191.655, 143.192, 278.01, 60.9641, 219.593, 0.00793457, 165.622, 0.00793457, 90.0613, 0.00793457, 89.7438, 9.84982 )
