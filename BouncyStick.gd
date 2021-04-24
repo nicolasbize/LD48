@@ -28,16 +28,16 @@ func _process(delta) -> void:
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		velocity = velocity.bounce(collision.normal) * 0.6
-		if active_collision_side == LEFT and active_light != RIGHT:
+		if active_collision_side == LEFT:# and active_light != RIGHT:
 			velocity += transform.x * bounce_force
 			active_light = RIGHT
-		elif active_collision_side == RIGHT and active_light != LEFT:
+		elif active_collision_side == RIGHT:# and active_light != LEFT:
 			velocity -= transform.x * bounce_force
 			active_light = LEFT
 		if velocity.length() < 10:
 			velocity -= transform.x * bounce_force / 2
 			
-	sprite.frame = active_light
+	sprite.frame = BOTH#active_light
 	
 
 func apply_gravity() -> void:
