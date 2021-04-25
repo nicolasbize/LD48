@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/LD48-theme.wav-cda9337ee691a19cd7ae8dfac39e4b9c.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/LD48-theme.wav"
+dest_files=[ "res://.import/LD48-theme.wav-cda9337ee691a19cd7ae8dfac39e4b9c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

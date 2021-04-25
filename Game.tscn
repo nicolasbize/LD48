@@ -1,17 +1,39 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://BouncyStick.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Level.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game.gd" type="Script" id=3]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Checkpoint.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Sounds/LD48-theme.wav" type="AudioStream" id=6]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Level" parent="." instance=ExtResource( 2 )]
 
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource( 5 )]
+position = Vector2( 288, 472 )
+
+[node name="Checkpoint4" parent="Checkpoints" instance=ExtResource( 5 )]
+position = Vector2( 32, 1992 )
+
+[node name="Checkpoint5" parent="Checkpoints" instance=ExtResource( 5 )]
+position = Vector2( 160, 2680 )
+is_last_checkpoint = true
+
+[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource( 5 )]
+position = Vector2( 88, 1440 )
+rotation = 1.5708
+
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource( 5 )]
+position = Vector2( 264, 1008 )
+rotation = 1.5708
+
 [node name="BouncyStick" parent="." instance=ExtResource( 1 )]
-position = Vector2( 21.5064, 33.0169 )
+position = Vector2( 20, 30 )
 rotation = 1.5708
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -29,3 +51,15 @@ remote_path = NodePath("../../Camera2D")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
 [node name="UI" parent="." instance=ExtResource( 4 )]
+
+[node name="StateTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+[connection signal="timeout" from="StateTimer" to="." method="_on_StateTimer_timeout"]
+
+[editable path="UI"]

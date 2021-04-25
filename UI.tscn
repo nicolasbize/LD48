@@ -1,28 +1,219 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Fonts/gamefont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Sprites/frame.png" type="Texture" id=2]
+[ext_resource path="res://UI.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Sprites/cups.png" type="Texture" id=4]
 
 [node name="UI" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 3 )
 
-[node name="Control" type="Control" parent="."]
+[node name="Topbar" type="Control" parent="."]
 anchor_right = 1.0
 rect_min_size = Vector2( 0, 30 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Control"]
+[node name="TimeLabel" type="Label" parent="Topbar"]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -64.0
+margin_left = -352.0
 margin_top = -7.0
-margin_right = -10.0
+margin_right = -298.0
 margin_bottom = 9.0
 custom_fonts/font = ExtResource( 1 )
-text = "0.0"
+text = "00:00"
 align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BestTimeLabel" type="Label" parent="Topbar"]
+visible = false
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -192.0
+margin_top = -7.0
+margin_right = -96.0
+margin_bottom = 9.0
+custom_fonts/font = ExtResource( 1 )
+text = "Best:-00:02"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldRecordLabel" type="Label" parent="Topbar"]
+visible = false
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = -7.0
+margin_bottom = 9.0
+custom_fonts/font = ExtResource( 1 )
+text = "WR:+00:04"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreControl" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HighScorePanel" type="TextureRect" parent="HighScoreControl"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -90.0
+margin_right = 90.0
+margin_bottom = 120.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CongratulationsLabel" type="Label" parent="HighScoreControl/HighScorePanel"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -158.0
+margin_top = -52.0
+margin_right = -22.0
+margin_bottom = -40.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.819608, 1, 0.780392, 1 )
+text = "Congratulations!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RunTimeLabel" type="Label" parent="HighScoreControl/HighScorePanel"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -158.0
+margin_top = -12.0
+margin_right = -22.0
+margin_bottom = 4.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Time: 05:35"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LocalBestLabel" type="Label" parent="HighScoreControl/HighScorePanel"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -158.0
+margin_top = 3.0
+margin_right = -22.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Local Best: 05:35"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReplayLabel" type="Label" parent="HighScoreControl/HighScorePanel"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -158.0
+margin_top = 28.0
+margin_right = -22.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Replay? (Enter)"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CupSprite" type="Sprite" parent="HighScoreControl/HighScorePanel"]
+position = Vector2( 86, 32 )
+texture = ExtResource( 4 )
+hframes = 4
+frame = 1
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="WelcomeControl" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WelcomePanel" type="TextureRect" parent="WelcomeControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -90.0
+margin_top = -60.0
+margin_right = 90.0
+margin_bottom = 60.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RunTimeLabel" type="Label" parent="WelcomeControl/WelcomePanel"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -158.0
+margin_top = -46.0
+margin_right = -22.0
+margin_bottom = -30.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Glowstick Run!"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LocalBestLabel" type="Label" parent="WelcomeControl/WelcomePanel"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -157.0
+margin_top = -8.0
+margin_right = -21.0
+margin_bottom = 8.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.792157, 0.792157, 0.792157, 1 )
+text = "Instructions:
+A/D or ←/→
+
+[Enter] to start!
+"
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
