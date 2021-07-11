@@ -60,6 +60,7 @@ autostart = true
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
+
 [connection signal="timeout" from="StateTimer" to="." method="_on_StateTimer_timeout"]
 
 [editable path="UI"]

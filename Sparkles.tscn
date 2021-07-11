@@ -5,13 +5,13 @@
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
-[sub_resource type="Curve" id=3]
+[sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=4]
-curve = SubResource( 3 )
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
 
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="ParticlesMaterial" id=4]
 trail_divisor = 2
 emission_shape = 1
 emission_sphere_radius = 1.0
@@ -30,7 +30,7 @@ damping = 1.0
 angle = 2.0
 scale = 0.8
 scale_random = 1.0
-scale_curve = SubResource( 4 )
+scale_curve = SubResource( 3 )
 color = Color( 1, 1, 0.847059, 1 )
 
 [node name="Sparkles" type="Particles2D"]
@@ -40,6 +40,6 @@ amount = 20
 one_shot = true
 explosiveness = 1.0
 local_coords = false
-process_material = SubResource( 2 )
+process_material = SubResource( 4 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
